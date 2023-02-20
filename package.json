@@ -19,7 +19,7 @@
     "dev:browser": "npm run build && vite ./example/browser",
     "lint": "eslint \"{src,example,packages,scripts,tests}/**/*.ts\"",
     "lint:fix": "eslint \"{src,example,packages,scripts,tests}/**/*.ts\" --fix",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npx only-allow pnpm && npm run build"
   },
   "keywords": [
     "dotbit",
