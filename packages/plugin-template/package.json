@@ -6,11 +6,12 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "clear": "rm -rf ./lib/ ./lib.esm/",
-    "prepublishOnly": "npm run build",
     "build": "npm run clear && npm run build:esm && npm run build:commonjs",
     "build:commonjs": "tsc -p tsconfig.build.json",
     "build:esm": "tsc -p tsconfig.build.esm.json",
-    "publish": "pnpm publish --access public"
+    "prepublishOnly": "npm run build",
+    "publish": "pnpm publish --access public",
+    "postversion": "genversion src/version.ts --es6 && git add src/version.ts package.json && git commit --amend --no-edit"
   },
   "license": "MIT"
 }
